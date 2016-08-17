@@ -30,7 +30,7 @@ class Server extends \Home {
 	function Buy($f3) {
 		$server = $this->loadServer();
 		$account = new \Webmin($server);
-		if (($saldo = $this->me->saldo)<$server->price) {
+		if (($Credit = $this->me->Credit)<$server->price) {
 			$this->flash('Your Credit Not Enough To Buy');
 			$f3->reroute($f3->get('URI'));
 		}
