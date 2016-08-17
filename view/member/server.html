@@ -15,7 +15,7 @@
         <div class="col-md-4 col-lg-3">
             <div class="row">
                 <div class="col-xs-6 col-md-12">
-                    <div class="well">Saldo : <B>{{ @me->saldo }}</B></div>                    
+                    <div class="well">Credit : <B>{{ @me->Credit }}</B></div>                    
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-lg-12">
@@ -25,13 +25,13 @@
                         </div>
                         <table class="table">
                             <tr>
-                                <td>Lokasi</td><td>{{ @server->country }}</td>
+                                <td>Location</td><td>{{ @server->country }}</td>
                             </tr>
                             <tr>
                                 <td>Host</td><td>{{ @server->host }}</td>
                             </tr>
                             <tr>
-                                <td>Harga</td><td>{{ @server->price }}</td>
+                                <td>Price</td><td>{{ @server->price }}</td>
                             </tr>
                         </table>
                     </div>
@@ -54,11 +54,11 @@
                             <input class="form-control" placeholder="New Password" name="pass" type="password" required>
                         </div>
                         <div class="form-group">
-                            <label>Masukan Ulang Password</label>
+                            <label>Re-enter Password</label>
                             <input class="form-control" placeholder="Re-enter Password" name="pass_confirmation" type="password" required>
                         </div>
-                        <button class="btn btn-primary">Simpan</button>
-                        <a href="/home/member/server" class="btn btn-default">Kembali</a>
+                        <button class="btn btn-primary">Save</button>
+                        <a href="/home/member/server" class="btn btn-default">Back</a>
                     </form>
                 </div>
             </div>
