@@ -41,20 +41,20 @@ class Seller extends \Home {
 		if ($seller->dry()) {
 			$seller->load(array('username=?',$f3->get('POST.username')));
 			if ( ! $seller->dry()) {
-				$this->flash('User sudah terdaftar');
+				$this->flash('Same Id Was Detected On This Server');
 				$f3->reroute('/home/admin/seller/add');
 			}
 		}
 		$seller->copyFrom('POST');
 		if ($f3->exists('POST.password',$pass)) {
 			if ( ! \Check::Confirm('POST.password')) {
-				$this->flash('Konfirmasi Password Tidak Cocok');
+				$this->flash('Your Confirmation Password Not same');
 				$f3->reroute($f3->get('URI'));
 			}
 			$seller->password = $pass;
 		}
 		$seller->save();
-		$this->flash('Berhasil Disimpan','success');
+		$this->flash('Saving Success','success');
 		$f3->reroute('/home/admin/seller/'.$seller->id);
 	}
 
@@ -62,14 +62,14 @@ class Seller extends \Home {
 		$seller = $this->loadSeller();
 		$seller->active = $f3->get('PARAMS.active');
 		$seller->save();
-		$this->flash('Berhasil Disimpan','success');
+		$this->flash('Saving Success','success');
 		$f3->reroute('/home/admin/seller/'.$seller->id);
 	}
 
 	function Delete($f3) {
 		$seller = $this->loadSeller();
 		$seller->erase();
-		$this->flash('Seller Berhasil Dihapus','success');
+		$this->flash('Seller Id Successfully Deleted','success');
 		$f3->reroute('/home/admin/seller/');
 	}
 
@@ -78,9 +78,9 @@ class Seller extends \Home {
 		$seller = $this->seller;
 		$seller->load(array('id=?',$post['id']));
 		$seller->reroute('/home/admin/seller');
-		$seller->saldo = ($seller->saldo + $post['deposit']);
+		$seller->credit = ($seller->Credit + $post['deposit']);
 		$seller->save();
-		$this->flash('Deposit Berhasil','success');
+		$this->flash('Deposit Success','success');
 		$f3->reroute('/home/admin/seller');
 	}
 
