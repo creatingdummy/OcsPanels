@@ -41,15 +41,15 @@
             e.preventDefault();
             BootstrapDialog.confirm({
                 title: 'Confirm',
-                message: ' Yakin Gan ?',
+                message: ' Are You Sure ?',
                 type: BootstrapDialog.TYPE_DANGER,
                 closable: true,
-                btnCancelLabel: 'Batal',
+                btnCancelLabel: 'Cancel',
                 btnOKLabel: 'Delete',
                 btnOKClass: 'btn-danger',
                 callback: function(result) {
                     if(result) {
-                        location.href = $('.hapus').attr('href');
+                        location.href = $('.Deleted').attr('href');
                     }
                 }
             });
